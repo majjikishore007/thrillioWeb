@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="65885cae-262c-462b-a8f5-0154ab03cb8c" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1ijTZJQMiX5Jcj7jnGqGIti4HG9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ScreenShots" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\javaProjects\BooksAloha\thrillioWeb\ScreenShots" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="" />
+      <option name="docBase" value="" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat 9.0.37" />
+          <option name="number" value="0" />
+          <option name="path" value="E:\java belongings\apache-tomcat-9.0.37" />
+          <option name="version" value="9.0.37.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="Gradle.BeforeRunTask" enabled="true" tasks="" />
+      </method>
+    </configuration>
+    <configuration name="tomcat9.0" type="com.poratu.idea.plugins.tomcat" factoryName="SMART_TOMCAT_FACTORY">
+      <option name="adminPort" value="8005" />
+      <option name="contextPath" value="/thrillioWeb" />
+      <option name="docBase" value="$PROJECT_DIR$/WebContent" />
+      <option name="envOptions">
+        <map />
+      </option>
+      <option name="passParentEnvironmentVariables" value="true" />
+      <option name="port" value="8080" />
+      <option name="tomcatInfo">
+        <TomcatInfo>
+          <option name="name" value="Apache Tomcat 9.0.37" />
+          <option name="number" value="0" />
+          <option name="path" value="E:\java belongings\apache-tomcat-9.0.37" />
+          <option name="version" value="9.0.37.0" />
+        </TomcatInfo>
+      </option>
+      <option name="vmOptions" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65885cae-262c-462b-a8f5-0154ab03cb8c" name="Default Changelist" comment="" />
+      <created>1602420056150</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602420056150</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.jsp" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="21" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602426873529">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="137" y="21" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1602426873529" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602421298482">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602421298482" />
+    <state width="1322" height="167" key="GridCell.Tab.0.bottom" timestamp="1602428072083">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="167" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
+    <state width="1322" height="167" key="GridCell.Tab.0.center" timestamp="1602428072083">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="167" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
+    <state width="1322" height="167" key="GridCell.Tab.0.left" timestamp="1602428072083">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="167" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
+    <state width="1322" height="167" key="GridCell.Tab.0.right" timestamp="1602428072083">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state width="1322" height="167" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
+    <state x="184" y="0" key="SettingsEditor" timestamp="1602421961408">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="184" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1602421961408" />
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1602421169292">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="346" y="59" width="672" height="678" key="search.everywhere.popup/0.0.1366.738@0.0.1366.738" timestamp="1602421169292" />
+  </component>
+</project>

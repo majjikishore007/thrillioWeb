@@ -67,9 +67,9 @@ public class BookMarkMannager {
 		return weblink;
 	}
 
-	public List<List<BookMark>> getBookmarks() {
-		return dao.getBookmarks();
-	}
+//	public List<List<BookMark>> getBookmarks() {
+//		return dao.getBookmarks();
+//	}
 
 	public void saveUserBookmark(User user, BookMark bookmark) {
 		UserBookmark userBookmark = new UserBookmark();
@@ -106,7 +106,9 @@ public class BookMarkMannager {
 	public Collection<BookMark> getBooks(boolean isBookmarked, long userId) {
 		return (Collection<BookMark>) dao.getBooks(isBookmarked, userId);
 	}
-
+	public void  removeBook(long bId, long userId) {
+		dao.removeBook(bId, userId);
+	}
 	public BookMark getBook(long bid) {
 		return BookMarkDao.getBook(bid);
 		

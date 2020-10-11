@@ -7,16 +7,16 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 
-import com.mkk.thirilo.DataStore;
+
 import com.thirlilo.constants.Gender;
 import com.thirlilo.constants.UserType;
 import com.thirlo.entites.User;
 import com.thirlo.managers.UserManager;
 
 public class UserDao {
-	public List<User> getUsers() {
-		return DataStore.getUsers();
-	}
+//	public List<User> getUsers() {
+//		return DataStore.getUsers();
+//	}
 
 	
 	

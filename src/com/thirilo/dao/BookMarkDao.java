@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
-import com.mkk.thirilo.DataStore;
 import com.thirlilo.constants.BookGenre;
 import com.thirlo.entites.Book;
 import com.thirlo.entites.BookMark;
@@ -19,9 +17,9 @@ import com.thirlo.entites.Weblink;
 import com.thirlo.managers.BookMarkMannager;
 
 public class BookMarkDao {
-	public List<List<BookMark>> getBookmarks() {
-		return DataStore.getBookmarks();
-	}
+//	public List<List<BookMark>> getBookmarks() {
+//		return DataStore.getBookmarks();
+//	}
 
 	public void saveUserBookmark(UserBookmark userBookmark) {
 
@@ -63,26 +61,26 @@ public class BookMarkDao {
 	/*
 	 * for downlading weblinks concurently using ,multithrading
 	 */
-	public List<Weblink> getAllWeblinks() {
-		List<Weblink> result = new ArrayList<>();
-		List<List<BookMark>> bookmarks = DataStore.getBookmarks();
-		List<BookMark> allWeblinks = bookmarks.get(0);
-		for (BookMark bookMark : allWeblinks) {
-			result.add((Weblink) bookMark);
-		}
-		return result;
-	}
+//	public List<Weblink> getAllWeblinks() {
+//		List<Weblink> result = new ArrayList<>();
+//		List<List<BookMark>> bookmarks = DataStore.getBookmarks();
+//		List<BookMark> allWeblinks = bookmarks.get(0);
+//		for (BookMark bookMark : allWeblinks) {
+//			result.add((Weblink) bookMark);
+//		}
+//		return result;
+//	}
 
-	public List<Weblink> getWeblinks(Weblink.DownloadStaus downloadStaus) {
-		List<Weblink> result = new ArrayList<>();
-		List<Weblink> allWeblinks = getAllWeblinks();
-		for (Weblink weblink : allWeblinks) {
-			if (weblink.getDownloadStatus().equals(downloadStaus)) {
-				result.add(weblink);
-			}
-		}
-		return result;
-	}
+//	public List<Weblink> getWeblinks(Weblink.DownloadStaus downloadStaus) {
+//		List<Weblink> result = new ArrayList<>();
+//		List<Weblink> allWeblinks = getAllWeblinks();
+//		for (Weblink weblink : allWeblinks) {
+//			if (weblink.getDownloadStatus().equals(downloadStaus)) {
+//				result.add(weblink);
+//			}
+//		}
+//		return result;
+//	}
 
 	public void updateKidFriendlyStatus(BookMark bookmark) {
 		System.out.println("inside update kid friendly sttus");
@@ -234,6 +232,30 @@ public class BookMarkDao {
 			e.printStackTrace();
 		}
 		return book;
+	}
+
+	public void removeBook(long bId, long userId) {
+			System.out.println("removing bookmarks");
+//		Collection<BookMark> result = new ArrayList<>();
+		
+		
+
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/jid_thrillio", "root",
+				"majji@007"); Statement stmt = conn.createStatement();) {
+//			System.out.println("kishore");
+			String query = "DELETE FROM user_book WHERE user_id= "+userId+" and book_id="+bId;
+				
+			System.out.println(query);
+				stmt.executeUpdate(query);
+			
+//			result = getBooks(true,userId);
+//			System.out.println("kishore");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		
 	}
 
 }

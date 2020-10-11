@@ -34,9 +34,9 @@ public class UserManager {
 
 	}
 
-	public List<User> getUsers() {
-		return dao.getUsers();
-	}
+//	public List<User> getUsers() {
+//		return dao.getUsers();
+//	}
 
 	public User getUser(Long userId) {
 		
