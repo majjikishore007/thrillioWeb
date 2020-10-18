@@ -1,15 +1,15 @@
 package com.thirilo.controllers;
 
-import java.io.IOException;
+import com.thirilo.utill.StringUtil;
+import com.thirlo.managers.UserManager;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.thirilo.utill.StringUtil;
-import com.thirlo.managers.UserManager;
+import java.io.IOException;
 
 /**
  * Servlet implementation class AuthController
@@ -35,8 +35,8 @@ public class AuthController extends HttpServlet {
 		if(!request.getServletPath().contains("logout")) {
 //			login
 			String email=request.getParameter("email");
-			String password=StringUtil.encodePassword(request.getParameter("password"));
-			
+//			String password=StringUtil.encodePassword(request.getParameter("password"));
+			String password=request.getParameter("password");
 			Long userId=UserManager.getInstance().authenticate(email, password);
 			System.out.println("userID "+userId  );
 			if(userId != -1) {

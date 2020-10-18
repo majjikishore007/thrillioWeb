@@ -3,6 +3,24 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="65885cae-262c-462b-a8f5-0154ab03cb8c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +38,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ScreenShots" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JAVA&#10;JSON" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/java-json.jar/java-json.jar" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -33,9 +55,7 @@
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="" />
       <option name="docBase" value="" />
-      <option name="envOptions">
-        <map />
-      </option>
+      <option name="envOptions" />
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
       <option name="tomcatInfo">
@@ -56,9 +76,7 @@
       <option name="adminPort" value="8005" />
       <option name="contextPath" value="/thrillioWeb" />
       <option name="docBase" value="$PROJECT_DIR$/WebContent" />
-      <option name="envOptions">
-        <map />
-      </option>
+      <option name="envOptions" />
       <option name="passParentEnvironmentVariables" value="true" />
       <option name="port" value="8080" />
       <option name="tomcatInfo">
@@ -99,36 +117,37 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="137" y="21" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602426873529">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="137" y="21" width="1092" height="717" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1602426873529" />
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1602421298482">
+    <state x="463" y="96" key="FileChooserDialogImpl" timestamp="1602953895631">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602421298482" />
-    <state width="1322" height="167" key="GridCell.Tab.0.bottom" timestamp="1602428072083">
+    <state x="463" y="96" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1602953895631" />
+    <state width="1308" height="151" key="GridCell.Tab.0.bottom" timestamp="1603006438884">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="167" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
-    <state width="1322" height="167" key="GridCell.Tab.0.center" timestamp="1602428072083">
+    <state width="1308" height="151" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1603006438884" />
+    <state width="1308" height="151" key="GridCell.Tab.0.center" timestamp="1603006438883">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="167" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
-    <state width="1322" height="167" key="GridCell.Tab.0.left" timestamp="1602428072083">
+    <state width="1308" height="151" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1603006438883" />
+    <state width="1308" height="151" key="GridCell.Tab.0.left" timestamp="1603006438883">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="167" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
-    <state width="1322" height="167" key="GridCell.Tab.0.right" timestamp="1602428072083">
+    <state width="1308" height="151" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1603006438883" />
+    <state width="1308" height="151" key="GridCell.Tab.0.right" timestamp="1603006438883">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1322" height="167" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1602428072083" />
-    <state x="184" y="0" key="SettingsEditor" timestamp="1602421961408">
+    <state width="1308" height="151" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1603006438883" />
+    <state x="70" y="0" key="SettingsEditor" timestamp="1602830925864">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="184" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1602421961408" />
+    <state x="70" y="0" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1602830925864" />
     <state x="346" y="59" width="672" height="678" key="search.everywhere.popup" timestamp="1602421169292">
       <screen x="0" y="0" width="1366" height="738" />
     </state>

@@ -1,18 +1,12 @@
 package com.thirlo.managers;
 
-import java.util.Collection;
-import java.util.List;
-
 import com.thirilo.dao.BookMarkDao;
 import com.thirlilo.constants.BookGenre;
 import com.thirlilo.constants.KidFriendlyStatus;
 import com.thirlilo.constants.MovieGenre;
-import com.thirlo.entites.Book;
-import com.thirlo.entites.BookMark;
-import com.thirlo.entites.Movie;
-import com.thirlo.entites.User;
-import com.thirlo.entites.UserBookmark;
-import com.thirlo.entites.Weblink;
+import com.thirlo.entites.*;
+
+import java.util.Collection;
 
 public class BookMarkMannager {
 	private static BookMarkMannager instance = new BookMarkMannager();

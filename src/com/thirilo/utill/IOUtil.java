@@ -1,15 +1,6 @@
 package com.thirilo.utill;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.util.List;
 
 public class IOUtil {
@@ -48,12 +39,11 @@ public class IOUtil {
 		return text.toString();
 	}
 
-	public static void write(String webpage, long id) {
+	public static void write(Object jsonObject) {
 		try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(
-				new FileOutputStream(
-						"C:\\Users\\kishoremajji007\\eclipse-workspace\\thirilo\\pages" + String.valueOf(id) + ".html"),
+				new FileOutputStream("C:\\data" ),
 				"UTF-8"))) {
-			writer.write(webpage);
+			writer.write(jsonObject.toString());
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

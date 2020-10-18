@@ -1,11 +1,10 @@
 package com.thirlo.entites;
 
-import java.util.Arrays;
-
-import org.apache.commons.lang3.StringUtils;
-
 import com.thirilo.partner.Shareable;
 import com.thirlilo.constants.BookGenre;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.Arrays;
 
 public class Book extends BookMark implements Shareable {
 	private int publicationYear;

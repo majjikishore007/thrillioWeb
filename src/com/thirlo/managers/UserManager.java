@@ -1,9 +1,6 @@
 package com.thirlo.managers;
 
-import java.util.List;
-
 import com.thirilo.dao.UserDao;
-import com.thirilo.utill.StringUtil;
 import com.thirlilo.constants.Gender;
 import com.thirlilo.constants.UserType;
 import com.thirlo.entites.User;

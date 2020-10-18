@@ -1,8 +1,8 @@
 package com.thirlo.entites;
 
-import java.util.Arrays;
-
 import com.thirlilo.constants.MovieGenre;
+
+import java.util.Arrays;
 
 public class Movie extends BookMark {
 	private int releaseYear;

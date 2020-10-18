@@ -19,6 +19,7 @@ import com.thirlo.managers.UserManager;
 /**
  * Servlet implementation class BookmarkController
  */
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = { "/bookmark", "/bookmark/save", "/bookmark/mybooks", "/bookmark/remove" })
 public class BookmarkController extends HttpServlet {
 
