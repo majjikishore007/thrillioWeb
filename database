@@ -1,0 +1,328 @@
+CREATE DATABASE  IF NOT EXISTS `jid_thrillio`;
+USE `jid_thrillio`;
+
+
+
+DROP TABLE IF EXISTS `actor`;
+
+CREATE TABLE `actor` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+LOCK TABLES `actor` WRITE;
+
+INSERT INTO `actor` VALUES (1,'Orson Welles'),(2,'Joseph Cotten'),(3,'Henry Fonda'),(4,'Jane Darwell'),(5,'Albert Cullum'),(6,'Kaley Cuoco'),(7,'Jim Parsons'),(8,'Takashi Shimura'),(9,'Minoru Chiaki');
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `author`;
+
+CREATE TABLE `author` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+LOCK TABLES `author` WRITE;
+
+INSERT INTO `author` VALUES (1,'Henry David Thoreau'),(2,'Ralph Waldo Emerson'),(3,'Lillian Eichler Watson'),(4,'Joshua Bloch'),(5,'Eric Freeman'),(6,'Bert Bates'),(7,'Kathy Sierra'),(8,'Elisabeth Robson');
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `book`;
+
+
+CREATE TABLE `book` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) NOT NULL,
+  `image_url` varchar(500) DEFAULT NULL,
+  `publication_year` int DEFAULT NULL,
+  `publisher_id` bigint DEFAULT NULL,
+  `book_genre_id` tinyint DEFAULT NULL,
+  `amazon_rating` double DEFAULT NULL,
+  `kid_friendly_status` tinyint DEFAULT NULL,
+  `kid_friendly_marked_by` bigint DEFAULT NULL,
+  `shared_by` bigint DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`(250),`publication_year`,`publisher_id`),
+  KEY `publisher_id` (`publisher_id`),
+  KEY `kid_friendly_marked_by` (`kid_friendly_marked_by`),
+  KEY `shared_by` (`shared_by`),
+  CONSTRAINT `book_ibfk_1` FOREIGN KEY (`publisher_id`) REFERENCES `publisher` (`id`),
+  CONSTRAINT `book_ibfk_2` FOREIGN KEY (`kid_friendly_marked_by`) REFERENCES `user` (`id`),
+  CONSTRAINT `book_ibfk_3` FOREIGN KEY (`shared_by`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+LOCK TABLES `book` WRITE;
+
+INSERT INTO `book` VALUES (1,'Walden','https://images.gr-assets.com/books/1465675526l/16902.jpg',1854,1,6,4.3,2,NULL,NULL,'2020-07-04 14:37:57'),(2,'Self-Reliance and Other Essays','https://images.gr-assets.com/books/1520778510l/123845.jpg',1993,2,6,4.5,2,NULL,NULL,'2020-07-04 14:37:57'),(3,'Light From Many Lamps','https://images.gr-assets.com/books/1347739312l/1270698.jpg',1988,3,6,5,2,NULL,NULL,'2020-07-04 14:37:57'),(4,'Head First Design Patterns','https://images.gr-assets.com/books/1408309444l/58128.jpg',2004,4,10,4.5,0,3,5,'2020-07-04 14:37:57'),(5,'Effective Java Programming Language Guide','https://images.gr-assets.com/books/1433511045l/105099.jpg',2007,5,10,4.9,1,3,5,'2020-07-04 14:37:57');
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `book_author`;
+
+CREATE TABLE `book_author` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `book_id` bigint NOT NULL,
+  `author_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `book_id` (`book_id`,`author_id`),
+  KEY `author_id` (`author_id`),
+  CONSTRAINT `book_author_ibfk_1` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`),
+  CONSTRAINT `book_author_ibfk_2` FOREIGN KEY (`author_id`) REFERENCES `author` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `book_author` WRITE;
+
+INSERT INTO `book_author` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,4,5),(6,4,6),(7,4,7),(8,5,8);
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `director`;
+
+CREATE TABLE `director` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `director` WRITE;
+
+INSERT INTO `director` VALUES (1,'Orson Welles'),(2,'John Ford'),(3,'Leslie Sullivan'),(4,'Chuck Lorre'),(5,'Bill Prady'),(6,'Akira Kurosawa');
+
+UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `movie`;
+
+
+CREATE TABLE `movie` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) NOT NULL,
+  `release_year` int DEFAULT NULL,
+  `movie_genre_id` tinyint DEFAULT NULL,
+  `imdb_rating` double DEFAULT NULL,
+  `kid_friendly_status` tinyint DEFAULT NULL,
+  `kid_friendly_marked_by` bigint DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`(100),`release_year`),
+  KEY `kid_friendly_marked_by` (`kid_friendly_marked_by`),
+  CONSTRAINT `movie_ibfk_1` FOREIGN KEY (`kid_friendly_marked_by`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+LOCK TABLES `movie` WRITE;
+
+INSERT INTO `movie` VALUES (1,'Citizen Kane',1941,0,8.5,1,3,'2020-07-04 14:44:39'),(2,'The Grapes of Wrath',1940,0,8.2,0,3,'2020-07-04 14:44:40'),(3,'A Touch of Greatness',2004,24,7.3,1,4,'2020-07-04 14:44:40'),(4,'The Big Bang Theory',2007,20,8.7,1,3,'2020-07-04 14:44:40'),(5,'Ikiru',1952,25,8.4,0,3,'2020-07-04 14:44:40');
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `movie_actor`;
+
+CREATE TABLE `movie_actor` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `movie_id` bigint NOT NULL,
+  `actor_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `movie_id` (`movie_id`,`actor_id`),
+  KEY `actor_id` (`actor_id`),
+  CONSTRAINT `movie_actor_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
+  CONSTRAINT `movie_actor_ibfk_2` FOREIGN KEY (`actor_id`) REFERENCES `actor` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `movie_actor` WRITE;
+
+INSERT INTO `movie_actor` VALUES (1,1,1),(2,1,2),(3,2,3),(4,2,4),(5,3,5),(6,4,6),(7,4,7),(8,5,8),(9,5,9);
+
+UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `movie_director`;
+
+CREATE TABLE `movie_director` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `movie_id` bigint NOT NULL,
+  `director_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `movie_id` (`movie_id`,`director_id`),
+  KEY `director_id` (`director_id`),
+  CONSTRAINT `movie_director_ibfk_1` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`),
+  CONSTRAINT `movie_director_ibfk_2` FOREIGN KEY (`director_id`) REFERENCES `director` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `movie_director` WRITE;
+
+INSERT INTO `movie_director` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,4,5),(6,5,6);
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `publisher`;
+
+CREATE TABLE `publisher` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `publisher` WRITE;
+
+INSERT INTO `publisher` VALUES (1,'Wilder Publications'),(2,'Dover Publications'),(3,'Touchstone'),(4,'O\'Reilly Media'),(5,'Prentice Hall');
+
+UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `email` varchar(100) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `gender_id` tinyint DEFAULT NULL,
+  `user_type_id` tinyint DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `user` WRITE;
+
+INSERT INTO `user` VALUES (1,'user0@semanticsquare.com','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','John','M',0,0,'2020-07-04 14:49:03'),(2,'user1@semanticsquare.com','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','Sam','M',0,0,'2020-07-04 14:49:03'),(3,'user2@semanticsquare.com','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','Anita','M',1,1,'2020-07-04 14:49:03'),(4,'user3@semanticsquare.com','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','Sara','M',1,1,'2020-07-04 14:49:03'),(5,'user4@semanticsquare.com','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3','Dheeru','M',0,2,'2020-07-04 14:49:03');
+
+UNLOCK TABLES;
+
+
+DROP TABLE IF EXISTS `user_book`;
+
+CREATE TABLE `user_book` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `book_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `book_id` (`book_id`),
+  CONSTRAINT `user_book_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `user_book_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `book` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=262 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `user_book` WRITE;
+
+INSERT INTO `user_book` VALUES (165,3,1),(167,3,3),(170,2,1),(171,2,1),(172,2,1),(173,2,2),(191,5,1),(192,5,2),(193,5,3),(195,5,5),(196,1,1),(197,1,2),(198,1,5),(199,2,1),(200,2,2),(201,3,1),(202,3,4),(203,4,1),(204,4,4),(205,4,5),(206,5,1),(207,5,2),(208,5,3),(210,5,5),(211,1,4),(212,2,1),(213,2,3),(214,3,1),(215,3,2),(216,3,3),(217,3,5),(218,4,1),(219,4,2),(220,4,4),(221,4,5),(222,5,2),(224,5,5),(225,1,2),(226,1,4),(227,2,1),(228,2,2),(229,3,1),(230,3,5),(231,4,2),(232,4,3),(233,4,4),(234,5,3),(236,5,5),(237,1,4),(238,1,5),(239,2,2),(240,2,5),(241,3,1),(242,3,2),(243,3,5),(244,4,3),(245,4,4),(246,4,5),(247,5,2),(249,5,5),(250,1,2),(251,1,5),(252,2,1),(253,2,3),(254,2,4),(255,3,1),(256,3,4),(257,3,5),(258,4,2),(259,5,1),(261,5,4);
+
+UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `user_movie`;
+
+CREATE TABLE `user_movie` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `movie_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `movie_id` (`movie_id`),
+  CONSTRAINT `user_movie_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `user_movie_ibfk_2` FOREIGN KEY (`movie_id`) REFERENCES `movie` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=179 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `user_movie` WRITE;
+
+INSERT INTO `user_movie` VALUES (35,1,1),(36,1,2),(37,1,3),(38,1,4),(39,2,2),(40,2,3),(41,3,1),(42,3,5),(43,4,1),(44,4,2),(45,4,3),(46,5,1),(47,5,3),(48,5,4),(49,1,4),(50,1,5),(51,2,3),(52,2,4),(53,3,2),(54,3,4),(55,4,1),(56,4,3),(57,5,1),(58,5,4),(59,5,5),(60,1,1),(61,1,2),(62,1,5),(63,2,4),(64,3,4),(65,4,1),(66,4,3),(67,4,5),(68,1,2),(69,1,4),(70,2,1),(71,2,2),(72,2,4),(73,2,5),(74,3,1),(75,3,2),(76,3,5),(77,4,1),(78,4,2),(79,4,3),(80,4,4),(81,4,5),(82,5,2),(83,5,3),(84,5,4),(85,5,5),(86,1,3),(87,2,3),(88,3,1),(89,3,3),(90,3,4),(91,4,1),(92,4,3),(93,5,3),(94,5,5),(95,1,4),(96,1,5),(97,2,3),(98,2,4),(99,3,3),(100,4,2),(101,4,3),(102,4,5),(103,5,1),(104,5,3),(105,1,3),(106,2,1),(107,2,5),(108,3,1),(109,3,3),(110,3,4),(111,4,1),(112,4,5),(113,5,1),(114,5,5),(115,1,2),(116,1,3),(117,3,2),(118,3,3),(119,3,4),(120,3,5),(121,4,2),(122,5,1),(123,5,4),(124,5,5),(125,1,2),(126,1,5),(127,2,1),(128,3,1),(129,3,2),(130,3,3),(131,3,4),(132,4,1),(133,4,2),(134,4,4),(135,4,5),(136,5,1),(137,5,2),(138,5,3),(139,5,5),(140,2,3),(141,2,4),(142,2,5),(143,3,3),(144,3,4),(145,3,5),(146,4,2),(147,4,3),(148,4,4),(149,4,5),(150,5,1),(151,5,2),(152,5,3),(153,1,1),(154,1,2),(155,1,4),(156,2,1),(157,2,5),(158,3,1),(159,3,3),(160,3,5),(161,4,3),(162,5,1),(163,5,3),(164,5,4),(165,1,1),(166,1,2),(167,1,3),(168,1,5),(169,2,1),(170,2,2),(171,2,3),(172,2,5),(173,3,1),(174,3,3),(175,3,5),(176,4,1),(177,4,4),(178,4,5);
+
+UNLOCK TABLES;
+
+DROP TABLE IF EXISTS `user_weblink`;
+
+CREATE TABLE `user_weblink` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `user_id` bigint NOT NULL,
+  `weblink_id` bigint NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  KEY `weblink_id` (`weblink_id`),
+  CONSTRAINT `user_weblink_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `user_weblink_ibfk_2` FOREIGN KEY (`weblink_id`) REFERENCES `weblink` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=188 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `user_weblink` WRITE;
+
+INSERT INTO `user_weblink` VALUES (26,1,1),(27,2,1),(28,2,2),(29,2,4),(30,3,1),(31,3,2),(32,3,3),(33,3,4),(34,4,3),(35,4,4),(36,5,3),(37,1,1),(38,1,2),(39,1,4),(40,1,5),(41,2,2),(42,3,3),(43,3,4),(44,4,1),(45,4,4),(46,5,2),(47,5,5),(48,1,1),(49,1,2),(50,1,3),(51,2,1),(52,2,3),(53,3,1),(54,3,3),(55,3,5),(56,4,1),(57,4,5),(58,5,1),(59,5,2),(60,5,5),(61,1,4),(62,1,5),(63,2,1),(64,2,2),(65,2,3),(66,2,5),(67,3,2),(68,4,1),(69,4,2),(70,4,4),(71,5,3),(72,1,1),(73,1,5),(74,2,1),(75,2,3),(76,2,4),(77,2,5),(78,3,1),(79,3,3),(80,3,4),(81,3,5),(82,4,1),(83,4,2),(84,4,3),(85,4,4),(86,4,5),(87,5,2),(88,5,3),(89,5,4),(90,5,5),(91,1,2),(92,2,1),(93,2,2),(94,2,4),(95,3,4),(96,4,1),(97,4,3),(98,4,5),(99,5,4),(100,5,5),(101,1,1),(102,1,2),(103,1,3),(104,1,4),(105,2,1),(106,2,3),(107,2,5),(108,3,1),(109,3,2),(110,3,3),(111,3,5),(112,4,3),(113,4,4),(114,4,5),(115,5,1),(116,5,2),(117,5,3),(118,1,2),(119,1,4),(120,1,5),(121,2,1),(122,2,4),(123,3,1),(124,4,1),(125,4,5),(126,5,2),(127,5,5),(128,1,1),(129,1,3),(130,1,4),(131,1,5),(132,2,1),(133,2,3),(134,2,5),(135,3,1),(136,3,3),(137,3,4),(138,3,5),(139,4,1),(140,5,1),(141,5,2),(142,5,3),(143,5,5),(144,1,1),(145,1,3),(146,1,4),(147,2,1),(148,2,2),(149,2,4),(150,2,5),(151,3,1),(152,3,5),(153,4,1),(154,4,2),(155,4,3),(156,4,5),(157,5,2),(158,1,1),(159,1,2),(160,1,4),(161,2,1),(162,2,2),(163,2,5),(164,3,3),(165,3,4),(166,3,5),(167,4,1),(168,4,4),(169,5,1),(170,5,2),(171,5,4),(172,1,2),(173,1,3),(174,1,4),(175,2,1),(176,2,4),(177,2,5),(178,3,1),(179,3,3),(180,3,4),(181,3,5),(182,4,1),(183,4,2),(184,4,5),(185,5,1),(186,5,2),(187,5,4);
+
+UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `weblink`;
+
+CREATE TABLE `weblink` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `title` varchar(500) NOT NULL,
+  `url` varchar(250) NOT NULL,
+  `host` varchar(250) NOT NULL,
+  `kid_friendly_status` tinyint DEFAULT NULL,
+  `kid_friendly_marked_by` bigint DEFAULT NULL,
+  `shared_by` bigint DEFAULT NULL,
+  `created_date` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `url` (`url`(200)),
+  KEY `kid_friendly_marked_by` (`kid_friendly_marked_by`),
+  KEY `shared_by` (`shared_by`),
+  CONSTRAINT `weblink_ibfk_1` FOREIGN KEY (`kid_friendly_marked_by`) REFERENCES `user` (`id`),
+  CONSTRAINT `weblink_ibfk_2` FOREIGN KEY (`shared_by`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
+LOCK TABLES `weblink` WRITE;
+
+INSERT INTO `weblink` VALUES (1,'Use Final Liberally','http://www.javapractices.com/topic/TopicAction.do?I d=23','http://www.javapractices.com',1,3,5,'2020-07-04 14:46:45'),(2,'How do I import a pre-existing Java project into Eclipse and get up and running?','https://stackoverflow.com/questions/142863/how-do-i -import-a-pre-existing-java-project-into-eclipse-and -get-up-and-running','http://stackoverflow.com',0,3,5,'2020-07-04 14:46:46'),(3,'Interface vs Abstract Class','http://mindprod.com/jgloss/interfacevsabstract.html ','http://mindprod.com',0,3,4,'2020-07-04 14:46:46'),(4,'NIO tutorial by Greg Travis','http://cs.brown.edu/courses/cs161/papers/j-nio-ltr. pdf','http://cs.brown.edu',0,3,5,'2020-07-04 14:46:47'),(5,'Virtual Hosting and Tomcat','http://tomcat.apache.org/tomcat-6.0-doc/virtual-hos 23_4_queries ting-howto.html','http://tomcat.apache.org',1,4,5,'2020-07-04 14:48:07');
+
+UNLOCK TABLES;
+
