@@ -2,7 +2,7 @@
 
 
 
- <h1><a href="https://thrillio.herokuapp.com/" style="color: red; font-size: 40px; outline-style: none;  ";">Thrillio</a></h1>
+ <h1><a href="https://thrillio.herokuapp.com/" style="color: red; font-size: 50px; outline-style: none;  ";">Thrillio</a></h1>
 
 
 
