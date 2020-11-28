@@ -1,14 +1,16 @@
 package com.thirlo.entites;
 
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 import com.thirilo.partner.Shareable;
+import com.thirilo.utill.StringUtil;
 import com.thirlilo.constants.BookGenre;
 import org.apache.commons.lang3.StringUtils;
 
-import java.util.Arrays;
+
 
 public class Book extends BookMark implements Shareable {
 	private int publicationYear;
-	private String publisher;
+	private StringUtil publisher;
 	private String[] authors;
 	private BookGenre genre;
 	private double amazonRating;
@@ -54,13 +56,13 @@ public class Book extends BookMark implements Shareable {
 		this.amazonRating = amazonRating;
 	}
 
-	@Override
+	
 	public String toString() {
 		return "Book [publicationYear=" + publicationYear + ", publisher=" + publisher + ", authors="
 				+ Arrays.toString(authors) + ", genre=" + genre + ", amazonRating=" + amazonRating + "]";
 	}
 
-	@Override
+
 	public boolean isKidFriendlyEligible() {
 		if (genre.equals(BookGenre.PHILOSOPHY) || genre.equals(BookGenre.SELF_HELP)) {
 			return false;
@@ -68,7 +70,7 @@ public class Book extends BookMark implements Shareable {
 		return true;
 	}
 
-	@Override
+
 	public String getItemData() {
 		// TODO Auto-generated method stub
 		StringBuilder builder = new StringBuilder();

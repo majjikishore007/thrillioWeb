@@ -1,8 +1,7 @@
 package com.thirilo.dao;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+
+
 
 import com.thirlilo.constants.BookGenre;
 import com.thirlilo.constants.Gender;
@@ -13,6 +12,10 @@ import com.thirlo.entites.User;
 import com.thirlo.entites.UserBookmark;
 import com.thirlo.managers.BookMarkMannager;
 import com.thirlo.managers.UserManager;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 public class Data {
 	public static List<User> users = new ArrayList<>();

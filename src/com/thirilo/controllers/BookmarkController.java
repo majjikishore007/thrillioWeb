@@ -1,25 +1,29 @@
 package com.thirilo.controllers;
 
-import java.io.IOException;
-import java.util.Collection;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+import com.mysql.cj.x.protobuf.MysqlxCrud.Collection;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 import com.thirlilo.constants.KidFriendlyStatus;
 import com.thirlo.entites.BookMark;
 import com.thirlo.entites.User;
 import com.thirlo.managers.BookMarkMannager;
 import com.thirlo.managers.UserManager;
 
+import java.io.IOException;
+import java.util.concurrent.atomic.AtomicBoolean;
+
 /**
  * Servlet implementation class BookmarkController
  */
-@SuppressWarnings("serial")
+
 @WebServlet(urlPatterns = { "/bookmark", "/bookmark/save", "/bookmark/mybooks", "/bookmark/remove" })
 public class BookmarkController extends HttpServlet {
 
